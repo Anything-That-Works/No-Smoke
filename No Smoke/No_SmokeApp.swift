@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct No_SmokeApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  @State var manager = HealthManager()
+  var body: some Scene {
+    WindowGroup {
+      NoSmokeTabView()
+        .environment(manager)
     }
+  }
 }
