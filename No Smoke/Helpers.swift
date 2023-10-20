@@ -21,3 +21,13 @@ extension Date {
     Calendar.current.startOfDay(for: Date.now)
   }
 }
+
+extension Date {
+  static func startOfWeek(for date: Date = Date.now, using calendar: Calendar = .current) -> Date {
+      var calendar = calendar
+      calendar.firstWeekday = 2 // Sunday as the first day of the week (you can adjust this based on your needs)
+      var components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date)
+      components.weekday = calendar.firstWeekday
+      return calendar.date(from: components)!
+  }
+}

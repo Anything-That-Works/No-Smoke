@@ -7,22 +7,6 @@
 
 import SwiftUI
 
-struct Activity: Identifiable {
-  let id = UUID()
-  let title: String
-  let subTitle: String
-  let image: String
-  let amount: String
-  
-  static func stepsPlaceholder() -> Activity {
-    return Activity(title: "Today Steps", subTitle: "Goal: 10,000", image: "figure.walk", amount: "0")
-  }
-  static func caloriesPlaceholder() -> Activity {
-    return Activity(title: "Today Calories", subTitle: "Goal: 900", image: "flame", amount: "0")
-  }
-  
-}
-
 
 struct ActivityCard: View {
   @State var activity: Activity
@@ -43,6 +27,8 @@ struct ActivityCard: View {
       .padding(.bottom)
       Text(activity.amount)
         .font(.largeTitle)
+        .lineLimit(1)
+        .minimumScaleFactor(0.4)
     }
     
     .padding()
